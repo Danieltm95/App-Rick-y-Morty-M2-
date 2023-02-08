@@ -1,13 +1,15 @@
-import './App.css'
 import Card from './components/Card.jsx'
 import Cards from './components/Cards.jsx'
 import SearchBar from './components/SearchBar.jsx'
 import characters, { Rick } from './data.js'
+import background from './assets/backG.jpg'
+import styles from './App.module.css'
+
 
 function App () {
   return (
-    <div className='App' style={{ padding: '25px' }}>
-      <div>
+    <div className={styles.App} style={ {backgroundImage: `url(${background})`, padding: '25px'}}>
+      <div className={styles.multiCards}>
         <Card
           name={Rick.name}
           species={Rick.species}
@@ -17,7 +19,7 @@ function App () {
         />
       </div>
       <hr />
-      <div className='multiCards'>
+      <div className={styles.multiCards}>
         <Cards
           characters={characters}
         />

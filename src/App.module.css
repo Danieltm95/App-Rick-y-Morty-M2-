@@ -1,0 +1,77 @@
+.App {
+   text-align: center;
+   /* background-image: url(${background}) ;  */
+}
+
+.multiCards {
+   align-items: center;
+   margin: 5pt;
+   flex-flow: row nowrap;
+   justify-content: center;
+   display: flex;
+   gap: 20pt;
+   
+}
+
+
+.indvCard {
+   padding-left: 10pt;
+   padding-right: 10pt;
+   background-color: rgb(163, 71, 199);
+   border-radius: 10pt;
+   padding-bottom: 10pt;
+   
+}
+
+.name {
+   margin-top: -10pt;
+   margin-bottom: 5pt;
+}
+
+.button {
+   position: relative;
+   left: 105pt;
+   margin-top: 10pt;
+   background-color: rgb(83, 168, 207);
+   border-radius: 5pt;
+}
+
+ .button:hover {
+   background-color: rgb(173, 73, 73);
+   padding: 4px 10px;
+   transform: scale(1.1);
+ }
+
+ .description {
+   display: inline-block;
+   width: 150px;
+   margin: -10px;   
+ }
+
+ .img {
+   margin-bottom: 1px;
+ }
+
+
+.searchBar {
+   height:30px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+.searchBtn {
+   height:30px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   background-color: rgb(71, 116, 199);
+   border-color: rgb(122, 199, 199);
+}
+
+
+.searchBtn:hover {
+   height:30px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   background-color: rgb(163, 71, 199);
+   border-color: rgb(122, 199, 199);
+}
