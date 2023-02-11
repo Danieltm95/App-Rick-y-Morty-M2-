@@ -1,35 +1,52 @@
-import Card from './components/Card.jsx'
+import Nav from './components/Nav.jsx'
 import Cards from './components/Cards.jsx'
-import SearchBar from './components/SearchBar.jsx'
-import characters, { Rick } from './data.js'
+//import characters from './data.js'
 import background from './assets/backG.jpg'
 import styles from './App.module.css'
+import { useState } from 'react'
+
+
 
 
 function App () {
+
+  const [characters, setCharacters] = useState([]);
+  console.log(characters)
+
+  const onClose = (id) => {
+
+    setCharacters(characters.filter((keys) => keys.id !== id))
+  }
+
+  const onSearch = (character) => {
+  
+      fetch(`https://rickandmortyapi.com/api/character/${character}`)
+      .then((response) => response.json())
+      .then((data) => {
+         if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+         } else {
+            window.alert('No hay personajes con ese ID');
+         }
+      })
+  
+  };
+
+
   return (
     <div className={styles.App} style={ {backgroundImage: `url(${background})`, padding: '25px'}}>
-      <div className={styles.multiCards}>
-        <Card
-          name={Rick.name}
-          species={Rick.species}
-          gender={Rick.gender}
-          image={Rick.image}
-          onClose={() => window.alert('Emulamos que se cierra la card')}
-        />
+      
+      <div className={styles.navBar}>
+        <Nav onSearch={onSearch}/>
       </div>
-      <hr />
       <div className={styles.multiCards}>
         <Cards
           characters={characters}
+          onClose={onClose}
         />
       </div>
-      <hr />
-      <div>
-        <SearchBar
-          onSearch={(characterID) => window.alert(characterID)}
-        />
-      </div>
+      
+    
     </div>
   )
 }

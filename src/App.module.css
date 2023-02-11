@@ -9,7 +9,7 @@
    flex-flow: row nowrap;
    justify-content: center;
    display: flex;
-   gap: 20pt;
+   gap: 40pt;
    
 }
 
@@ -74,4 +74,13 @@
    margin-bottom: 20px;
    background-color: rgb(163, 71, 199);
    border-color: rgb(122, 199, 199);
+}
+
+.navSearchBar {
+   position: relative;
+   left: 330pt;
+}
+
+.navBar {
+   background-color: rgb(39, 131, 206);
 }
