@@ -4,15 +4,18 @@ import Cards from './components/Cards.jsx'
 import background from './assets/backG.jpg'
 import styles from './App.module.css'
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import About from "./components/About.jsx"
 import Detail from "./components/Detail.jsx"
+import Form from "./components/Form.jsx"
 
 
 
 
 
 function App() {
+
+  const location = useLocation();
 
   const [characters, setCharacters] = useState([]);
   console.log(characters)
@@ -38,16 +41,21 @@ function App() {
 
 
   return (
-    <div className={styles.App} style={{ backgroundImage: `url(${background})`, padding: '25px', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height:'100%' }}>
+    <div className={styles.App} style={{ backgroundImage: `url(${background})`, padding: '25px', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '100%' }}>
+
+
+      <Routes>
+        
+      </Routes>
 
       <div >
-        <Nav 
-        onSearch={onSearch}
-         />
+        
+        {location.pathname !== '/' && <Nav onSearch={onSearch}/>}
+    
       </div>
       <Routes>
-       
 
+        <Route path='/' element={<Form />} />
         <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
         <Route path='/about' element={<About />} />
         <Route path='/detail/:detailId' element={<Detail />} />
