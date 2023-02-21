@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import styles from '../../src/App.module.css';
 
-export default function Nav({ onSearch }) {
+export default function Nav(props) {
 
 
     return (
@@ -24,9 +24,10 @@ export default function Nav({ onSearch }) {
                     Home!
 
                 </NavLink>
+                <button className={styles.links} onClick={props.logout}>logout</button>
             </div>
             <SearchBar
-                onSearch={onSearch}
+                onSearch={props.onSearch}
             />
         </nav>
 

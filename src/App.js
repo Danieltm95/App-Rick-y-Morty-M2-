@@ -4,7 +4,7 @@ import Cards from './components/Cards.jsx'
 import background from './assets/backG.jpg'
 import styles from './App.module.css'
 import { useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import About from "./components/About.jsx"
 import Detail from "./components/Detail.jsx"
 import Form from "./components/Form.jsx"
@@ -13,9 +13,11 @@ import Form from "./components/Form.jsx"
 
 
 
+
 function App() {
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [characters, setCharacters] = useState([]);
   console.log(characters)
@@ -24,6 +26,25 @@ function App() {
 
     setCharacters(characters.filter((keys) => keys.id !== id))
   }
+
+
+  const [access, setAccess] = useState(false)
+
+
+  const username = "docampoc95@gmail.com"
+  const password = "daniel95"
+
+  const login = (userData) => {
+    console.log("usar log in")
+    if(userData.username === username && userData.password === password){
+      setAccess(true);
+      navigate('/home')
+      console.log(userData);
+    }
+
+
+
+  };
 
   const onSearch = (character) => {
 
@@ -39,7 +60,10 @@ function App() {
 
   };
 
-
+  function logout() {
+    setAccess(false);
+    navigate('/');
+  };
   return (
     <div className={styles.App} style={{ backgroundImage: `url(${background})`, padding: '25px', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '100%' }}>
 
@@ -50,15 +74,15 @@ function App() {
 
       <div >
         
-        {location.pathname !== '/' && <Nav onSearch={onSearch}/>}
+        {location.pathname !== '/' && <Nav onSearch={onSearch} logout={logout}/>}
     
       </div>
       <Routes>
 
-        <Route path='/' element={<Form />} />
-        <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/detail/:detailId' element={<Detail />} />
+        <Route exact path='/' element={<Form login={login}/>} />
+        <Route exact path='/home' element={<Cards characters={characters} onClose={onClose} />} />
+        <Route exact path='/about' element={<About />} />
+        <Route exact path='/detail/:detailId' element={<Detail />} />
 
       </Routes>
 
