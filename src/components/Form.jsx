@@ -55,7 +55,7 @@ export default function Form(props) {
             <form onSubmit={handleSubmit}>
                 <label >Username:</label>
                 <input
-
+                    className="loginBar"
                     type="text"
                     name="username"
                     placeholder='Ingrese el usuario...'

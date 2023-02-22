@@ -8,6 +8,7 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import About from "./components/About.jsx"
 import Detail from "./components/Detail.jsx"
 import Form from "./components/Form.jsx"
+import Favorites from './components/Favorites.jsx'
 
 
 
@@ -32,7 +33,7 @@ function App() {
 
 
   const username = "docampoc95@gmail.com"
-  const password = "daniel95"
+  const password = "danieltm95"
 
   const login = (userData) => {
     console.log("usar log in")
@@ -79,6 +80,7 @@ function App() {
       </div>
       <Routes>
 
+        <Route exact path='/favorites' element={<Favorites />} />
         <Route exact path='/' element={<Form login={login}/>} />
         <Route exact path='/home' element={<Cards characters={characters} onClose={onClose} />} />
         <Route exact path='/about' element={<About />} />

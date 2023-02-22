@@ -8,8 +8,8 @@
     margin: 0px 15px;
     background-color: rgb(55, 122, 75, 0.8);
     margin-top: 15px;
-    margin-left: 550px;
-    margin-right: 550px;
+    margin-left: 950px;
+    margin-right: 950px;
     margin-bottom: 15px;
     border-radius: 15px
  };
@@ -21,6 +21,7 @@
     color: rgb(99, 202, 206);
     padding: 10px;
     margin: 0px 15px;
+    height: 20px;
     
   }
   
@@ -33,6 +34,6 @@
 
   .loginBar {
     height:30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
  }

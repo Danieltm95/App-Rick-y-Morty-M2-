@@ -14,6 +14,11 @@ export default function Nav(props) {
                 width="20%"
             />
             <div>
+                <NavLink className={styles.links} to='/favorites'>
+
+                    Favorites!
+
+                </NavLink>
                 <NavLink className={styles.links} to='/about'>
 
                     About!
